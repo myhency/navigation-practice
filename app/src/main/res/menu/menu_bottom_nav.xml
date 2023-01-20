@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:title="Playlist"
+        android:enabled="true"
+        android:id="@+id/menu_home"
+         />
+    <item
+        android:title="Market"
+        android:enabled="true"
+        android:id="@+id/menu_market"
+         />
+    <item
+        android:title="More"
+        android:enabled="true"
+        android:id="@+id/menu_more"
+         />
+</menu>
