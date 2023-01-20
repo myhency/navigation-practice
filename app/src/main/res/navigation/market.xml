@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/market"
+    app:startDestination="@id/marketScreen">
+
+    <fragment
+        android:id="@+id/marketScreen"
+        android:name="com.io.play.navigationpractice.MarketFragment"
+        android:label="fragment_market"
+        tools:layout="@layout/fragment_market">
+        <action
+            android:id="@+id/action_marketScreen_to_itemDetailScreen"
+            app:destination="@id/itemDetailScreen" />
+    </fragment>
+    <fragment
+        android:id="@+id/itemDetailScreen"
+        android:name="com.io.play.navigationpractice.ItemDetailFragment"
+        android:label="fragment_item_detail"
+        tools:layout="@layout/fragment_item_detail" />
+
+</navigation>

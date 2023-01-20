@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.io.play.navigationpractice.databinding.FragmentHomeBinding
 import com.io.play.navigationpractice.databinding.FragmentSomeDetailBinding
 
@@ -23,16 +24,14 @@ class SomeDetailFragment : Fragment() {
     ): View {
         binding = FragmentSomeDetailBinding.inflate(layoutInflater, container, false)
         val view = binding.root
-        initViews(view)
+//        initViews(view)
 
         return view
     }
 
-    private fun initViews(view: ConstraintLayout) {
-        binding.buttonToHome.setOnClickListener {
-            view.findNavController().navigate(R.id.action_global_homeFragment)
-        }
-    }
-
-
+//    private fun initViews(view: ConstraintLayout) {
+//        binding.buttonToHome.setOnClickListener {
+//            findNavController().navigate(R.id.action_global_homeFragment)
+//        }
+//    }
 }

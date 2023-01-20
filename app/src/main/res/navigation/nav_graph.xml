@@ -1,60 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/playlist">
 
-    <fragment
-        android:id="@+id/homeFragment"
-        android:name="com.io.play.navigationpractice.HomeFragment"
-        android:label="fragment_home"
-        tools:layout="@layout/fragment_home" >
-        <action
-            android:id="@+id/action_homeFragment_to_playlistFragment"
-            app:destination="@id/navigation2" />
-        <action
-            android:id="@+id/action_homeFragment_to_marketFragment"
-            app:destination="@id/navigation" />
-    </fragment>
-    <navigation android:id="@+id/navigation"
-        app:startDestination="@id/marketFragment">
-        <fragment
-            android:id="@+id/marketFragment"
-            android:name="com.io.play.navigationpractice.MarketFragment"
-            android:label="fragment_market"
-            tools:layout="@layout/fragment_market">
-            <action
-                android:id="@+id/action_marketFragment_to_itemDetailFragment"
-                app:destination="@id/itemDetailFragment" />
-        </fragment>
-        <fragment
-            android:id="@+id/itemDetailFragment"
-            android:name="com.io.play.navigationpractice.ItemDetailFragment"
-            android:label="fragment_item_detail"
-            tools:layout="@layout/fragment_item_detail" />
-    </navigation>
-    <navigation android:id="@+id/navigation2"
-        app:startDestination="@id/playlistFragment">
-        <fragment
-            android:id="@+id/someDetailFragment"
-            android:name="com.io.play.navigationpractice.SomeDetailFragment"
-            android:label="fragment_some_detail"
-            tools:layout="@layout/fragment_some_detail" />
-        <fragment
-            android:id="@+id/playlistFragment"
-            android:name="com.io.play.navigationpractice.PlaylistFragment"
-            android:label="fragment_playlist"
-            tools:layout="@layout/fragment_playlist">
-            <action
-                android:id="@+id/action_playlistFragment_to_someDetailFragment"
-                app:destination="@id/someDetailFragment" />
-        </fragment>
-    </navigation>
+    <include app:graph="@navigation/playlist" />
+    <include app:graph="@navigation/home" />
+    <include app:graph="@navigation/market" />
 
     <action
         android:id="@+id/action_global_homeFragment"
-        app:destination="@id/homeFragment"
-        app:popUpTo="@id/nav_graph"
-        app:popUpToInclusive="true" />
+        app:destination="@id/home" />
+    <action
+        android:id="@+id/action_global_playlistFragment"
+        app:destination="@id/playlist" />
+    <action
+        android:id="@+id/action_global_marketFragment"
+        app:destination="@id/market" />
 </navigation>

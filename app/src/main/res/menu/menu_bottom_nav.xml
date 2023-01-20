@@ -3,16 +3,16 @@
     <item
         android:title="Playlist"
         android:enabled="true"
-        android:id="@+id/menu_home"
+        android:id="@+id/playlist"
+        />
+    <item
+        android:title="Home"
+        android:enabled="true"
+        android:id="@+id/home"
          />
     <item
         android:title="Market"
         android:enabled="true"
-        android:id="@+id/menu_market"
-         />
-    <item
-        android:title="More"
-        android:enabled="true"
-        android:id="@+id/menu_more"
+        android:id="@+id/market"
          />
 </menu>

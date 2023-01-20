@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.io.play.navigationpractice.databinding.FragmentPlaylistBinding
 
 class PlaylistFragment : Fragment() {
@@ -22,17 +23,14 @@ class PlaylistFragment : Fragment() {
     ): View? {
         binding = FragmentPlaylistBinding.inflate(layoutInflater, container, false)
         val view = binding.root
-        initViews(view)
+        initViews()
 
         return view
     }
 
-    private fun initViews(view: ConstraintLayout) {
+    private fun initViews() {
         binding.buttonToSomeDetail.setOnClickListener {
-            val action = PlaylistFragmentDirections.actionPlaylistFragmentToSomeDetailFragment()
-            view.findNavController().navigate(action)
+            findNavController().navigate(R.id.action_playlistScreen_to_someDetailScreen)
         }
     }
-
-
 }
