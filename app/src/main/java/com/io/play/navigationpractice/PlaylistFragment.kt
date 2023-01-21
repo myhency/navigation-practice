@@ -32,5 +32,10 @@ class PlaylistFragment : Fragment() {
         binding.buttonToSomeDetail.setOnClickListener {
             findNavController().navigate(R.id.action_playlistScreen_to_someDetailScreen)
         }
+
+        binding.loadPlayerButton.setOnClickListener {
+            val mainActivity = activity as MainActivity
+            mainActivity.loadPlayer()
+        }
     }
 }

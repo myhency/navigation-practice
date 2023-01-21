@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        android:id="@+id/yt_transition"
+        motion:constraintSetEnd="@+id/end"
+        motion:constraintSetStart="@id/start"
+        motion:duration="300"
+        motion:motionInterpolator="easeInOut">
+        <KeyFrameSet>
+            <KeyAttribute
+                android:alpha="0.0"
+                motion:framePosition="90"
+                motion:motionTarget="@+id/minimizedPlayerWrap" />
+
+            <KeyAttribute
+                android:alpha="0.0"
+                motion:framePosition="10"
+                motion:motionTarget="@+id/headerWrap" />
+
+            <KeyAttribute
+                android:alpha="0.0"
+                motion:framePosition="50"
+                motion:motionTarget="@+id/bottomWrap" />
+        </KeyFrameSet>
+        <OnSwipe
+            motion:dragDirection="dragDown"
+            motion:maxAcceleration="40"
+            motion:touchAnchorId="@+id/headerWrap"
+            motion:touchAnchorSide="bottom" />
+    </Transition>
+
+    <ConstraintSet android:id="@+id/start">
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end">
+        <Constraint
+            android:id="@+id/headerWrap"
+            android:layout_width="0dp"
+            android:layout_height="66dp"
+            android:visibility="invisible"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent" />
+        <Constraint
+            android:id="@+id/imageThumbnail"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            motion:layout_constraintBottom_toBottomOf="@id/minimizedThumbnailPlaceholder"
+            motion:layout_constraintEnd_toEndOf="@id/minimizedThumbnailPlaceholder"
+            motion:layout_constraintStart_toStartOf="@id/minimizedThumbnailPlaceholder"
+            motion:layout_constraintTop_toTopOf="@id/minimizedThumbnailPlaceholder" />
+        <Constraint
+            android:id="@+id/bottomWrap"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toBottomOf="parent" />
+<!--        <Constraint-->
+<!--            android:id="@+id/minimizedPlayerWrap"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="0dp"-->
+<!--            motion:layout_constraintEnd_toEndOf="@id/main_container"-->
+<!--            motion:layout_constraintBottom_toBottomOf="@id/main_container"-->
+<!--            motion:layout_constraintTop_toTopOf="@id/main_container"-->
+<!--            motion:layout_constraintStart_toStartOf="@id/main_container" />-->
+        <Constraint
+            android:id="@+id/minimizedPlayerWrap"
+            android:layout_width="0dp"
+            android:layout_height="66dp"
+            android:visibility="visible"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toTopOf="@id/headerWrap" />
+
+    </ConstraintSet>
+</MotionScene>

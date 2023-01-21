@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        motion:constraintSetEnd="@+id/end"
+        motion:constraintSetStart="@id/start"
+        motion:duration="10"
+        motion:layoutDuringTransition="honorRequest">
+       <KeyFrameSet>
+           <KeyAttribute
+               android:translationY="0dp"
+               motion:framePosition="0"
+               motion:motionTarget="@+id/bottom_navigation" />
+           <KeyAttribute
+               android:translationY="66dp"
+               motion:framePosition="75"
+               motion:motionTarget="@+id/bottom_navigation" />
+           <KeyAttribute
+               android:scaleY="1"
+               motion:framePosition="50"
+               motion:motionTarget="@+id/container" />
+           <KeyAttribute
+               android:translationY="-66dp"
+               motion:framePosition="100"
+               motion:motionTarget="@+id/container" />
+       </KeyFrameSet>
+    </Transition>
+
+    <ConstraintSet android:id="@+id/start">
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end">
+    </ConstraintSet>
+</MotionScene>

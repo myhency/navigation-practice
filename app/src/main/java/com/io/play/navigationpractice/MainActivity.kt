@@ -3,6 +3,8 @@ package com.io.play.navigationpractice
 import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.util.Log
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation.findNavController
@@ -12,7 +14,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.io.play.navigationpractice.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityMainBinding
+    lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,5 +32,24 @@ class MainActivity : AppCompatActivity() {
         val navController = navHostFragment.navController
 
         binding.bottomNavigation.setupWithNavController(navController)
+    }
+
+    fun loadPlayer() = with(binding){
+        val frag = PlayerFragment()
+        supportFragmentManager.beginTransaction()
+            .remove(PlayerFragment())
+            .commit()
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.container, frag)
+            .commitNow()
+        Handler(Looper.getMainLooper()).postDelayed({
+            supportFragmentManager.fragments.forEach { fragment ->
+                (fragment as? PlayerFragment)
+                    ?.binding?.playerMotionLayout?.apply {
+//                        transitionToEnd()
+                        transitionToStart()
+                    }
+            }
+        }, 300)
     }
 }
